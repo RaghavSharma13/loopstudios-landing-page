@@ -1,38 +1,285 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landingPage {
+  width: inherit;
+  height: inherit;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+}
+nav {
+  margin-top: 36px;
+}
+.section--intro {
+  padding: 0px 7%;
+  min-height: 650px;
+  width: 100%;
+  background-image: url(./images/mobile/image-hero.jpg);
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:cover;
+  margin-bottom: 5rem;
+}
+@media only screen and (min-width:500px){
+    .section--intro{
+        background-image:url(./images/desktop/image-hero.jpg);
+    }
+}
+.intro--message {
+  margin-top: 160px;
+  font-size: 1.875rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  font-family: "Josefin Sans", sans-serif;
+  padding: 26px;
+  border: 1px solid white;
+  width: max-content;
+}
+@media only screen and (min-width:800px){
+    .section--intro,.about{
+        min-height:575px;
+    }
+    .intro--message{
+        margin-top:110px;
+    }
+}
+.intro--message > ul {
+  list-style: none;
+}
+.about {
+  position: relative;
+  padding: 0px 7%;
+  min-height: 500px;
+  width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.imgCover img{
+  /* height:450px;
+  width:652px; */
+  height:220px;
+  width:325px;
+  object-fit: cover;
+  /* background-image: url(./images/mobile/image-interactive.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  background-size: cover; */
+}
+.about--text{
+  padding:20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width:800px){
+  .imgCover img{
+    height:450px;
+    width:60%;
   }
-  to {
-    transform: rotate(360deg);
+  .about-text h1{
+    margin-top: 85px;
+  }
+  .about--text{
+    max-width: 420px;
+    background-color:hsl(0, 0%, 100%);
+    height:280px;
+    position: absolute;
+    top:38%;
+    left:50%;
+  }
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  color: hsl(0, 0%, 0%);
+}
+.about p {
+  text-align: center;
+  color: hsl(0, 0%, 55%);
+}
+.Creations {
+  padding: 0px 7%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.creations--grid {
+  width:100%;
+  display: grid;
+  gap: 25px 0px;
+  margin-bottom: 35px;
+}
+.projects{
+  position:relative;
+  cursor: pointer;
+  width: 100%;
+  height:100%;
+}
+.projects img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+.projects h2{
+  width:50%;
+    position:absolute;
+    bottom: 10px;
+    left:10px;
+    color:white;
+    font-family: 'Josefin Sans',sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.projects .overlay{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    background-color:hsl(0, 0%, 95%);
+    opacity:0;
+    transition:all 0.3s ease-in-out;
+}
+
+.projects:hover .overlay{
+    opacity:0.5;
+}
+.projects:hover h2{
+    color:hsl(0, 0%, 0%);
+    z-index: 1;
+}
+.btn {
+  height: 40px;
+  width: 150px;
+  outline: none;
+  border: 2px solid hsl(0, 0%, 0%);
+  background-color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  color: hsl(0, 0%, 0%);
+  letter-spacing: 3px;
+  font-family: "Alata", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  transition: all 300ms ease-in-out;
+  cursor:pointer;
+}
+.btn:hover {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 0%);
+}
+@media only screen and (min-width:800px){
+    .creations--grid{
+        margin-top:80px;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-columns: repeat(4,1fr);
+        gap:25px;
+    }
+    .Creations{
+        position:relative;
+    }
+    .Creations h1{
+        position: absolute;
+        top:-42px;
+        left:7%;
+    }
+    .btn{
+        position:absolute;
+        top:0px;
+        right:7%;
+        bottom:0;
+    }
+    .projects h2{
+      font-size: 2rem;
+    }
+}
+.footer {
+  padding: 0px 7%;
+  min-height: 470px;
+  width: 100%;
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer h2{
+    cursor: pointer;
+}
+.social {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.social img{
+  padding-bottom:10px;
+  transition:all 0.3s ease-in-out;  
+}
+.social img:hover{
+  cursor: pointer;
+  border-bottom:2px solid hsl(0, 0%, 100%);
+}
+.footer--socials,.footer--navLinks{
+  padding-top:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(0, 0%, 55%);
+}
+@media only screen and (min-width:800px){
+  .footer{
+    min-height:140px;
+    flex-direction: row;
+    justify-content:space-between;
+  }
+  .footer--navLinks{
+    width:50%;
+    /* display:flex;
+    flex-direction: column;
+    justify-content: center; */
+    align-items: flex-start;
+  }
+  .footer--socials{
+    width:50%;
+    /* display: flex;
+    flex-direction:column;
+    justify-content:center; */
+    align-items:flex-end;
+  }
+  
+  .footer--navLinks .header--list{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:0px;
+
+  }
+}
+/* media queries */
+@media only screen and (min-width: 620px) {
+  .intro--message {
+    font-size: 3rem;
+    width: fit-content;
   }
 }

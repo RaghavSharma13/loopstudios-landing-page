@@ -1,0 +1,127 @@
+.navbar{
+    height:26px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    height:inherit;
+    cursor: pointer;
+    z-index: 10;
+}
+.menu.hamburger{
+    z-index: 10;
+    height:18px;
+    width:26px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+}
+.menu.hamburger>span{
+    width:26px;
+    border-top:2px solid white;
+    transition:all 300ms ease-in-out;
+    transform-origin: 2px 1px;
+}
+ .menu.hamburger.open>span:nth-child(1){
+    transform: rotate(45deg);
+}
+.menu.hamburger.open>span:nth-child(2){
+    opacity: 0;
+}
+.menu.hamburger.open>span:nth-child(3){
+    transform: rotate(-45deg);
+} 
+nav .overlay{
+    visibility: hidden;
+    background-color:hsl(0, 0%, 0%);
+    position: fixed;
+    z-index: 10;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.overlay.close{
+    animation:fade-out 300ms forwards;
+}
+.overlay.open{
+    
+    animation:fade-in 300ms forwards;
+}
+.header--list{
+    padding: 26px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.header--list>a{
+    font-family:'Josefin Sans',sans-serif;
+    font-size:2rem;
+    text-decoration: none;
+    text-transform:uppercase;
+    color:hsl(0, 0%, 100%);
+    margin-bottom:5px;
+    padding: 10px;
+    border-bottom:2px solid transparent;
+    transition:all 300ms ease-in;
+}
+.header--list.small>a{
+    font-size:1rem;
+    text-transform:capitalize;
+    font-family:'Alata',sans-serif;
+}
+.header--list>a:hover{
+    border-bottom: 2px solid white;
+}
+.header--list.hide-for-mobile{
+    display: none;
+}
+.header--list.show{
+    flex:0.5;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px;
+}
+.header--list.show a{
+    font-family:'Alata',sans-serif;
+    font-size:1rem;
+    text-transform:capitalize;
+    
+}
+/* Animations */
+@keyframes fade-in{
+    from{
+        opacity: 0;
+        visibility: hidden;
+    }
+    1%{
+        opacity: 0;
+        visibility: visible;
+    }
+    to{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+@keyframes fade-out{
+    from{
+        opacity: 1;
+        visibility: visible;
+    }
+    99%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
